@@ -4,6 +4,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { DashboardOutletDirective } from './dashboard-outlet.directive';
 import { DashboardCardContainer } from './dashboard-card/dashboard-card.container';
 import { MaterialModule } from '../material.module';
+import { GridsterModule } from 'angular-gridster2';
 
 @NgModule({
   declarations: [
@@ -11,7 +12,7 @@ import { MaterialModule } from '../material.module';
     DashboardOutletDirective,
     DashboardCardContainer,
   ],
-  imports: [CommonModule, MaterialModule],
+  imports: [CommonModule, MaterialModule, GridsterModule],
   exports: [DashboardComponent],
 })
 export class DashboardModule {}

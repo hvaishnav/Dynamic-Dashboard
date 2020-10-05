@@ -16,6 +16,7 @@ import { AreaChartContainer } from './area-chart/area-chart.container';
 import { AreaChartComponent } from './area-chart/area-chart.component';
 import { LineChartComponent } from './line-chart/line-chart.component';
 import { LineChartContainer } from './line-chart/line-chart.container';
+import { GridsterModule } from 'angular-gridster2';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +38,7 @@ import { LineChartContainer } from './line-chart/line-chart.container';
     BrowserAnimationsModule,
     DashboardModule,
     GoogleChartsModule,
+    GridsterModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

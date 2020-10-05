@@ -1,9 +1,14 @@
-<div class="board" class="container-fluid col-lg-12 row">
-  <div *ngFor="let track of tracks;let i = index;">
-    <div *ngFor="let item of track.items;trackBy:RandomCol(i)" class="col-lg-{{12/this.RandomSize}}"
-      style="padding: 0px !important;">
-      <mat-card style="margin: 1rem; cursor: move !important;border:1px solid #dfdfdf" cdkDrag
-        cdkDragBoundary=".example-boundary">
+<!-- <button (click)="Additems()">
+
+  </button> -->
+
+<gridster [options]="options">
+  <gridster-item [item]="track" *ngFor="let track of tracks;let i = index;">
+    <div class="board" class="container-fluid col-lg-12 row">
+      <!-- <div *ngFor="let track of tracks;let i = index;"> -->
+      <div *ngFor="let item of track.items;trackBy:RandomCol(i)" style="padding: 0px !important;">
+        <!-- <mat-card style="margin: 1rem; cursor: move !important;border:1px solid #dfdfdf" cdkDrag
+            cdkDragBoundary=".example-boundary"> -->
         <div class="header">
           <div style="float: left;">
             {{item.name}}
@@ -14,7 +19,9 @@
           </div>
         </div>
         <ng-template appDashboardOutlet [item]="item" #ItemsRef></ng-template>
-      </mat-card>
+        <!-- </mat-card> -->
+      </div>
+      <!-- </div> -->
     </div>
-  </div>
-</div>
+  </gridster-item>
+</gridster>
