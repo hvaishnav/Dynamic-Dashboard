@@ -1,0 +1,25 @@
+:host {
+    gridster {
+      display: flex;
+      height: calc(100vh - 28px);
+      flex-direction: column;
+    }
+  }
+
+// gridster {
+//     -ms-user-select: none;
+//     -webkit-user-select: none;
+//     // background: #fff;
+//     box-sizing: border-box;
+//     display: block;
+//     height: 100%;
+//     position: relative;
+//     user-select: none;
+//     width: 100%;
+// }
+
+gridster-item 
+{
+    border: 1px solid #dfdfdf !important;
+    box-shadow: 0px 1px 3px #000;
+}
