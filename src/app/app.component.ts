@@ -9,7 +9,7 @@ import { DataExchangeService } from './DataExchange.service';
 export class AppComponent {
   title = 'DynamicDashboard';
   constructor(private DataEx: DataExchangeService) {
-   // let promptValue = prompt('Enter any value under 5', '');
-   // this.DataEx.UpdateData(promptValue);
+    let promptValue = prompt('Enter any value under 5', '');
+    this.DataEx.UpdateData(promptValue);
   }
 }

@@ -30,7 +30,7 @@ import { GridsterModule } from 'angular-gridster2';
     AreaChartComponent,
     LineChartComponent,
     LineChartContainer,
-    GridSterComponent
+    // GridSterComponent
   ],
   imports: [
     BrowserModule,

@@ -13,4 +13,6 @@ export class HelloWorldComponent implements OnInit {
   Refresh(ValFromParent) {
     alert('Value from parent is ' + ValFromParent);
   }
+  BindData(){}
 }
+

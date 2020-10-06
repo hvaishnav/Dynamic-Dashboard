@@ -3,14 +3,14 @@
   </button> -->
 
 <gridster [options]="options">
-  <gridster-item [item]="track" *ngFor="let track of tracks;let i = index;">
-    <div class="board" class="container-fluid col-lg-12 row">
+  <gridster-item [item]="track" *ngFor="let track of tracks;let i = index;" >
+    <div class="board" class="col-lg-12">
       <!-- <div *ngFor="let track of tracks;let i = index;"> -->
-      <div *ngFor="let item of track.items;trackBy:RandomCol(i)" style="padding: 0px !important;">
+      <div *ngFor="let item of track.items;trackBy:RandomCol(i)" >
         <!-- <mat-card style="margin: 1rem; cursor: move !important;border:1px solid #dfdfdf" cdkDrag
             cdkDragBoundary=".example-boundary"> -->
         <div class="header">
-          <div style="float: left;">
+          <div style="float: left;font-weight: 600;">
             {{item.name}}
           </div>
           <div class="Two">

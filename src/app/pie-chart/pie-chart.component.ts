@@ -15,10 +15,10 @@ export class PieChartComponent implements OnInit {
   @HostListener('window:resize', ['$event'])
   onWindowResize(event: any) {
     // let selection = this.chart.wrapper.visualization.getSelection();
+   
     this.chart.dynamicResize = true;
     this.BindData();
   }
-
   title = 'Browser market shares at a specific website, 2014';
   type = 'PieChart';
   data = [
@@ -52,8 +52,8 @@ export class PieChartComponent implements OnInit {
     ];
     this.columnNames = ['Browser', 'Percentage'];
     this.options = {
-      width: 'auto',
-      heigth: 'auto',
+        width: 'auto',
+        heigth:'auto',
     };
   }
 }

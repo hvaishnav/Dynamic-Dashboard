@@ -15,7 +15,7 @@ import { dashboardCards } from '../dashboard-cards';
 import { DashboardCardContainer } from '../dashboard-card/dashboard-card.container';
 import { DashboardCards } from '../dashboard-cards.enum';
 import { DataExchangeService } from 'src/app/DataExchange.service';
-import { GridsterConfig, GridsterItem, GridType } from 'angular-gridster2';
+import { GridsterConfig, GridsterItem, GridsterItemComponent, GridsterItemComponentInterface, GridType } from 'angular-gridster2';
 
 @Component({
   selector: 'app-dashboard',
@@ -45,7 +45,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     //console.info('itemChanged', item, itemComponent);
   }
 
-  static itemResize(item, itemComponent) {}
+
 
   ngOnInit() {
     if (this.DataEx.currentData) {
@@ -56,9 +56,12 @@ export class DashboardComponent implements OnInit, AfterViewInit {
         }
       });
 
+
       this.options = {
         itemChangeCallback: DashboardComponent.itemChange,
-        itemResizeCallback: DashboardComponent.itemResize,
+        itemResizeCallback:  (item: GridsterItem, itemComponent: GridsterItemComponentInterface) => {
+          this.RefreshCard(item.items[0]["id"]);
+        }
         // draggable: {
         //   enabled: true,
         // },
@@ -68,10 +71,11 @@ export class DashboardComponent implements OnInit, AfterViewInit {
         // },
         // gridType: 'scrollVertical',
         // displayGrid: 'none',
-        disablePushOnDrag: true,
+        ,disablePushOnDrag: true,
         draggable: { enabled: true },
         gridType: GridType.ScrollVertical,
-        resizable: { enabled: true },
+        resizable:
+         { enabled: true },
         displayGrid: 'onDrag&Resize',
         minCols: 12,
         maxCols: 12,
@@ -98,7 +102,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     for (let items in this.CardToShow) {
       let i = 1;
       let sObj = this.CardToShow[items];
-      console.log('sobj', sObj);
+   
       for (let item in DashboardCards) {
         let obj = {
           items: [
@@ -108,10 +112,6 @@ export class DashboardComponent implements OnInit, AfterViewInit {
               name: item + '( ' + sObj + ' )',
             },
           ],
-          // cols: 2,
-          // rows: 2,
-          // y: 0,
-          // x: 0,
         };
 
         if (sObj.split('_')[0] == '1') {
@@ -186,7 +186,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   }
   RefreshCard(id) {
     let value: any = this.dashboardOutlet.filter((e) => e.item.id == id)[0];
-    value.componentRef.instance.Refresh(id.split('_')[1]);
+    value.componentRef.instance.BindData();
   }
 
   RandomCol(index) {
